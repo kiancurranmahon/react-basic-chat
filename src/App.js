@@ -5,6 +5,7 @@ import "./App.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import "./databaseCredentials.js"
 
 // Firebase hacks
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -15,15 +16,7 @@ import { useRef, useState } from "react";
 import { IoArrowRedoCircle } from "react-icons/io5";
 
 // Connect to firebase
-firebase.initializeApp({
-  apiKey: "AIzaSyD1rzcF-bWyhPYQLDnM288koXTdRLbCoow",
-  authDomain: "samplechat-68538.firebaseapp.com",
-  projectId: "samplechat-68538",
-  storageBucket: "samplechat-68538.appspot.com",
-  messagingSenderId: "321463709349",
-  appId: "1:321463709349:web:b7deea3175671c01d4274c",
-  measurementId: "G-ZELJNKN9T9",
-});
+
 
 // Create constants
 const auth = firebase.auth();
@@ -31,12 +24,12 @@ const firestore = firebase.firestore();
 
 function App() {
   const [user] = useAuthState(auth); // user constant
-  document.title = "Super Chat";
+  document.title = "React Super Chat";
   // if user is defined, chat room.
   return (
     <div className="App">
       <header >
-        <h1>Super Chat</h1>
+        <h1>React Super Chat</h1>
         <SignOut />
       </header>
       <section>{user ? <ChatRoom /> : <SignIn />}</section>
